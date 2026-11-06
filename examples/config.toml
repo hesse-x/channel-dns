@@ -1,0 +1,42 @@
+[mesh]
+NX = 32
+NY = 32
+NZ = 32
+INDEX_disturb_Z = 3
+NXS = 16
+NYS = 30
+NZS = 16
+NX2 = 32
+NY2 = 32
+NZ2 = 32
+INDEX_Serial = 1
+
+[parm]
+XL = 1.0e1
+ZL = 1.0e1
+THETA = 0.0e0
+INDEX_GRAD_PRE = 0
+Re = 2.8e3
+INDEX_UNSTEADY_BC = 0
+G_pre = 0.0e0
+a_pre0 = 0.0e0
+b_pre0 = 1.0e0
+a_V = [1.0e0, 1.0e0, 1.0e0]
+b_V = [0.0e0, 0.0e0, 0.0e0]
+
+[control]
+INDEX_CONT = 0
+EPS_init = 0.0e0
+NSTEPS = 5
+NDUMFRQ = 1
+NPRNFRQ = 1
+DT = 3.0e-3
+NCOUNT_disturb = 0
+NDISTURBFRQ = 300
+EPS_disturb = 0.1e0
+V_Microblow0 = 1.0e-3
+Nstat = 50000
+
+[output]
+# ascii (default), binary, or both
+format = "ascii"
