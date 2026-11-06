@@ -1,0 +1,65 @@
+# Re_tau=180 channel flow; h=1, u_tau=1, nu=1/180; fixed dp/dx=-1.
+# Domain: 4*pi*h x 2*h x 2*pi*h.
+# Base grid: 128 x 129 x 128 (128th-order Chebyshev in y).
+# Nonlinear product grid: 196 x 193 x 196, satisfying strict 3/2 dealiasing.
+# Run with one MPI rank and sixteen compute workers:
+#   mkdir -p runs/retau180_new
+#   cp examples/Re_tau180/Re_tau180.toml runs/retau180_new/config.toml
+#   ./build-channel-dns/bin/channel_dns --threads 16 --timing runs/retau180_new
+# On this host, pin all 16 workers to P-core logical CPUs (control/MPI on E cores):
+#   python tools/run_retau180.py runs/retau180_new --threads 16 --worker-cpus 0,2,4,6,8,10,12,14,1,3,5,7,9,11,13,15 --control-cpus 16,17,18
+# Plot using a Python environment with numpy and matplotlib:
+#   python tools/plot_mean_profile.py runs/retau180_new --expected-samples 50000 --separate-walls
+# Development: 200000 steps; averaging: 50000 steps.
+# Total time: 250000 * 5e-5 = 12.5 h/u_tau.
+# No initial disturbance; random velocity injections AFTER steps 10000, 20000, 30000.
+# Each injection: 0.01*90*(1-y^2)*(r1,r2,3*r3), r_i in [-0.5,0.5).
+# Average every step from 200001 through 250000: exactly 50000 samples.
+# Statistics and restart fields overwrite every 10000 steps; diagnostics append every 1000.
+# This is a runnable case, not a claim of statistical/grid convergence.
+
+[mesh]
+NX = 128
+NY = 128
+NZ = 128
+INDEX_disturb_Z = 3
+NXS = 64
+NYS = 126
+NZS = 64
+NX2 = 196
+NY2 = 192
+NZ2 = 196
+INDEX_Serial = 1
+
+[parm]
+XL = 12.56637061435917
+ZL = 6.283185307179586
+THETA = 0.0e0
+INDEX_GRAD_PRE = 1
+Re = 180.0
+INDEX_UNSTEADY_BC = 0
+G_pre = 0.0e0
+a_pre0 = 0.0e0
+b_pre0 = 1.0e0
+a_V = [1.0e0, 1.0e0, 1.0e0]
+b_V = [0.0e0, 0.0e0, 0.0e0]
+
+[control]
+INDEX_CONT = 0
+EPS_init = 0.0
+NSTEPS = 250000
+NDUMFRQ = 10000
+NPRNFRQ = 1000
+DT = 5.0e-5
+NCOUNT_disturb = 3
+NDISTURBFRQ = 10000
+EPS_disturb = 0.01
+V_Microblow0 = 0.0
+Nstat = 200000
+
+[output]
+# ascii (default), binary, or both
+format = "binary"
+# No periodic physical dumps; scalar diagnostics follow NPRNFRQ=1000.
+physical_interval = 0
+statistics_interval = 10000

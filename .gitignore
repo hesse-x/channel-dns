@@ -1,0 +1,10 @@
+*.dat
+*.bin
+build
+build-*/
+*.o
+*.mod
+*.log
+run
+__pycache__
+runs
