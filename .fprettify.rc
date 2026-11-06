@@ -1,0 +1,7 @@
+indent = 2
+line-length = 132
+whitespace = 1
+enable-decl = true
+strict-indent = true
+case = [2, 2, 2, 2]
+exclude = [legacy]

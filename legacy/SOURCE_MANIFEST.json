@@ -1,0 +1,18 @@
+{
+  "origin": "/home/hesse/channel-dns/legacy",
+  "sha256": {
+    "control_channel_with_Microblow.txt": "bfbae7436b035202f0d295c0884740e113f18d20535a6efaa4833f29f640fe0b",
+    "include/com_channel.h": "b616f43dc077c88191abd8615672ea45570ec43070076cabe21bac7e1b6d07c8",
+    "include/mpi_head.h": "cb2e9cf24b88f914ce814fadc3b75c5919459c6c15a96fd9f17a766c41bb3057",
+    "meshparm_channel_with_Microblow.txt": "ce7224cb43ad47d0b47aaaeb901bc2b04e89822ff1d429b6ab2228ee3d37c894",
+    "parm_channel_with_Microblow.txt": "8f7b6330513bb7721acc5df8b6b955061687b02d4d921cc6d746046261d8d6e1",
+    "src/EQSOLVE_channel_ycut.f90": "ec989ca4830afddfa7c5cf8af2b6b8461ab7e741133bd641a59f8b2204c6dd8d",
+    "src/STEP23_channel_ycut.f90": "2d7e0825dbf093d551d51152a03db17d0f93e6aef82b13120d980d4c7c759a84",
+    "src/channel_with_Microblow_ycut.f90": "a0a02de19e7bc4eefe6c6fb9c13b5bddf59eaf545715c953a032578aa34e465a",
+    "src/fft_channel_ycut.f90": "8f96367a20013665ac5647731ba177501ee089be6a9a2f4204aff6695ec18515",
+    "src/fftpack.f90": "05553074dcbfe04f5e81ae9401c38dbd9384503cbd301e310fd5289b724dd977",
+    "src/for_channel_Microblow_ycut_.f90": "e92ee65f1fe3df4795d99aa751b10c6c6455b9858d6f56f2ab847bf2c54e5441",
+    "src/for_channel_statistics_ycut.f90": "d84036ee3146e20c948eb50d6a1f9b3f1610f26a5264e32faa77041d9732b098",
+    "src/vector_channel_ycut.f90": "af3627b84ac437ab64414a3156c5368fddb913f541c08f039921a5d288dde4ae"
+  }
+}

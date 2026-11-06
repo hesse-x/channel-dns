@@ -1,0 +1,44 @@
+# Configuration subset: decimal numbers, mixed-case names and inline arrays.
+[MeSh]
+NX = 16
+NY = 16
+NZ = 16
+INDEX_disturb_Z = 3
+NXS = 6
+NYS = 12
+NZS = 6
+NX2 = 24
+NY2 = 24
+NZ2 = 24
+INDEX_Serial = 1
+
+[parm]
+XL = 10
+ZL = 1e1
+THETA = 0
+INDEX_GRAD_PRE = 0
+Re = 2800
+INDEX_UNSTEADY_BC = 0
+G_pre = 0
+a_pre0 = 0
+b_pre0 = 1
+a_V = [1, 1.0, 1e0] # integer values are accepted for real parameters
+b_V = [0, 0, 0]
+
+[control]
+INDEX_CONT = 0
+EPS_init = 0
+NSTEPS = 0
+NDUMFRQ = 1
+NPRNFRQ = 1
+DT = 3.0e-3
+NCOUNT_disturb = 0
+NDISTURBFRQ = 300
+EPS_disturb = 0.1
+V_Microblow0 = 1.0e-3
+Nstat = 50000
+
+[output]
+format = 'binary'
+physical_interval = 0
+statistics_interval = 2
